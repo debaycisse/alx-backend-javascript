@@ -8,6 +8,6 @@ export default function handleProfileSignup() {
       );
     })
     .catch(
-      new Error('Either createUser() or uploadPhoto() ran into an error'),
+      new Error('Signup system offline'),
     );
 }
