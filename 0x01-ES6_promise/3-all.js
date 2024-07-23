@@ -6,5 +6,6 @@ export default function handleProfileSignup() {
       console.log(
         `${userInfo[1].body} ${userInfo[0].firstName} ${userInfo[0].lastName}`,
       );
-    }, () => console.error('Signup system offline'));
+    })
+    .catch(() => console.error('Signup system offline'));
 }
