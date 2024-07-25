@@ -90,14 +90,15 @@ export default class HolbertonCourse {
    *
    *@param {Array<string>} students - value with which an instance's students is updated
    */
-  set students(newStudent) {
-    try {
-      if (typeof newStudent !== 'string') {
-        throw TypeError('Student must be a string');
-      }
-      this._students.push(newStudent);
-    } catch (error) {
-      console.error(error);
+  set students(students) {
+    if (!(Array.isArray(students))) {
+      throw TypeError('Students must be an array');
     }
+    students.forEach((student) => {
+      if (typeof student !== 'string') {
+        throw TypeError('All students in the array must be a string');
+      }
+    });
+    this._students = students;
   }
 }
