@@ -6,17 +6,11 @@
  */
 export default function createReportObject(employeesList) {
   const data = {
-    allEmployees: {},
+    allEmployees: { ...employeesList },
     getNumberOfDepartments(employees) {
       return Object.keys(employees).length;
     },
   };
-
-  for (const empObj in employeesList) {
-    if (Object.hasOwn(employeesList, empObj)) {
-      data.allEmployees[`${empObj}`] = employeesList[empObj];
-    }
-  }
 
   return data;
 }
