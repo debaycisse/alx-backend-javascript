@@ -7,7 +7,7 @@ export default class Car {
 
   cloneCar() {
     const carCloneSymb = Symbol('cloneCar');
-    this[carCloneSymb] = new Car(this.brand, this.motor, this.color);
+    this[carCloneSymb] = new this.constructor(this.brand, this.motor, this.color);
     return this[carCloneSymb];
   }
 }
