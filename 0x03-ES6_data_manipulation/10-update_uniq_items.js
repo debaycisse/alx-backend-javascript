@@ -4,5 +4,4 @@ export default function updateUniqueItems(mapOfItems) {
       mapOfItems.set(key, 100);
     }
   }
-  return mapOfItems;
 }
