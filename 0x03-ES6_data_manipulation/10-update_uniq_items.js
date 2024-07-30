@@ -3,7 +3,7 @@ export default function updateUniqueItems(mapOfItems) {
     if (value === 1) {
       try {
         mapOfItems.set(key, 100);
-      } catch(e) {
+      } catch (e) {
         throw Error('Cannot process');
       }
     }
