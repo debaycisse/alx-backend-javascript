@@ -1,3 +1,5 @@
+// Task 5
+
 /**
  * Interface describes the shape for:
  * 1. workFromHome function
@@ -73,3 +75,23 @@ console.log(createEmployee(200));
 console.log(createEmployee(1000));
 console.log(createEmployee('$500'));
 
+
+// Task 6
+function isDirector(employee: Director | Teacher): boolean {
+    if (employee instanceof Director) {
+        return true;
+    }
+    return false;
+}
+
+function executeWork(employee: Director | Teacher): string {
+    if (isDirector(employee)) {
+        return (employee as Director).workDirectorTasks();
+    }
+    return (employee as Teacher).workTeacherTasks();
+    
+}
+
+// Tesing task 6
+console.log(executeWork(createEmployee(200)));
+console.log(executeWork(createEmployee(1000)));
