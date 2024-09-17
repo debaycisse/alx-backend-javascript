@@ -1,8 +1,8 @@
-const fs = require('fs');
+const fs = require('fs').promises;
 
-module.exports = function countStudents(filePath) {
+module.exports = async function countStudents(filePath) {
   try {
-    const data = fs.readFileSync(filePath, 'utf-8');
+    const data = await fs.readFile(filePath, 'utf-8');
     const stat = {
       numOfStudents: 0,
       fields: {},
@@ -30,7 +30,9 @@ module.exports = function countStudents(filePath) {
       if (field) {
         const fieldCount = stat.fields[field].counts;
         const studentNames = stat.fields[field].names;
-        console.log(`Number of students in ${field}: ${fieldCount}. List: ${studentNames.toString()}`);
+        console.log(
+          `Number of students in ${field}: ${fieldCount}. List: ${studentNames.toString()}`,
+        );
       }
     }
   } catch (error) {
