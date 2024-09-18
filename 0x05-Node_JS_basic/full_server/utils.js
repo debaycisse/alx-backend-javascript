@@ -1,3 +1,5 @@
+const { count } = require('console');
+
 const fs = require('fs').promises
 
 /**
@@ -13,11 +15,30 @@ const readDatabase = async (filePath) => {
     const i = 1;
     while (i < dataSplit.length) {
       if (dataSplit[i] !== undefined) {
-        firstNames.push(dataSplit[i][0]);
-        
+        let found = null;
+        const _key = dataSplit[i][3];
+        for (const info of studentInfo) {
+          if (_key in info) {
+            found = i;
+            break;
+          }
+        }
+        if (found !== null) {
+          const stdName = dataSplit[i][0];
+          studentInfo[found][count] += 1;
+          studentInfo[found][names].push(stdName);
+        } else {
+          const keyInfo = {
+            _key: {count: 1, names: [dataSplit[i][0]]}
+          };
+          studentInfo.push(keyInfo);
+        }
       }
+
+
       i += 1;
     }
+    
     return studentInfo;
   } catch (error) {
     throw new Error('Database cannot be loaded');
