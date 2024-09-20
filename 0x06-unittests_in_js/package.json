@@ -1,0 +1,14 @@
+{
+  "name": "unittest_in_node_js",
+  "version": "1.0.0",
+  "description": "This is used in a set of tasks, related to unittesting in javascript",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "Azeez Adebayo <debaycisse@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "mocha": "^10.7.3"
+  }
+}
