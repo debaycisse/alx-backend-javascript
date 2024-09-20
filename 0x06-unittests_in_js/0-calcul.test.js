@@ -18,5 +18,4 @@ describe('Testing the calculateNumber Function', () => {
   it('Should convert a string number', () => {
     assert.strictEqual(calculateNumber('1', '2'), 3);
   });
-
 });
