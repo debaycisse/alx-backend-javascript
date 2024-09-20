@@ -5,18 +5,14 @@
  * @param {string} type - the type of operation - SUM, SUBTRACT, DIVIDE
  * @returns {number} result of a given operation
  */
-module.exports = function calculateNumber (type, a, b) {
-  try {
-    if (type !== 'SUM' && type !== 'SUBTRACT' && type !== 'DIVIDE') {
-      return 0;
-    }
-    if (type === 'SUM') return Math.round(a) + Math.round(b);
-    else if (type === 'SUBTRACT') return Math.round(a) - Math.round(b);
-    else if (type === 'DIVIDE') {
-      if (Math.round(b) <= 0 || isNaN(Math.round(b))) return 'Error';
-      return Math.round(a) / Math.round(b);
-    }
-  } catch (error) {
-    throw new Error('Both arguments must be interger or number');
+module.exports = function calculateNumber(type, a, b) {
+  if (type !== 'SUM' && type !== 'SUBTRACT' && type !== 'DIVIDE') {
+    return 0;
   }
+  if (type === 'SUM') return Math.round(a) + Math.round(b);
+  if (type === 'SUBTRACT') return Math.round(a) - Math.round(b);
+  if (type === 'DIVIDE') {
+    if (Math.round(b) <= 0 || Number.isNaN(Math.round(b))) return 'Error';
+  }
+  return Math.round(a) / Math.round(b);
 };
