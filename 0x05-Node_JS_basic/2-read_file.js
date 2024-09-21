@@ -30,7 +30,7 @@ module.exports = function countStudents(filePath) {
       if (field) {
         const fieldCount = stat.fields[field].counts;
         const studentNames = stat.fields[field].names;
-        console.log(`Number of students in ${field}: ${fieldCount}. List: ${studentNames.toString()}`);
+        console.log(`Number of students in ${field}: ${fieldCount}. List: ${studentNames.join(', ')}`);
       }
     }
   } catch (error) {
