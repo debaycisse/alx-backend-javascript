@@ -7,7 +7,7 @@ const app = express();
 
 app.get('/', (req, res) => {
   res.setHeader('Content-Type', 'text/plain');
-  res.send('Hello Holberton School! ');
+  res.send('Hello Holberton School!');
 });
 
 app.get('/students', (req, res) => {
@@ -19,9 +19,9 @@ app.get('/students', (req, res) => {
         res.send(msg);
       })
       .catch((error) => {
-        console.error(error);
         res.statusCode = 500;
-        res.send(error);
+        const msg = `This is the list of our students\n${error.message}`;
+        res.send(msg);
       });
   } else {
     res.statusCode = 400;
