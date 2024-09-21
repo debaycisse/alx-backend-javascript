@@ -25,15 +25,25 @@ module.exports = async function countStudents(filePath) {
       }
       i += 1;
     }
+    let resData = `Number of students: ${stat.numOfStudents}\n`;
     console.log(`Number of students: ${stat.numOfStudents}`);
+    i = 0;
+    const fieldsLength = Object.keys(stat.fields).length;
     for (const field in stat.fields) {
       if (stat.fields[field]) {
         const fieldCount = stat.fields[field].counts;
         const studentNames = stat.fields[field].names;
         const msg = `Number of students in ${field}: ${fieldCount}. List: ${studentNames.join(', ')}`;
+        if ((i + 1) === fieldsLength) {
+          resData += msg;
+        } else {
+          resData += `${msg}\n`;
+        }
         console.log(msg);
       }
+      i++;
     }
+    return resData;
   } catch (error) {
     throw new Error('Cannot load the database');
   }

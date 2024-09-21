@@ -16,9 +16,8 @@ const app = http.createServer((req, res) => {
           res.end(`This is the list of our students\n${data}`);
         })
         .catch((error) => {
-          console.error(error);
           res.statusCode = 500;
-          res.end('Internal Server Error');
+          res.end(`This is the list of our students\n${error.message}`);
         });
     } else {
       res.statusCode = 400;
